@@ -35,44 +35,41 @@ export const useChatStore = defineStore("chat", {
                 messages: []
             },
         ] as IConversation[],
-        selectedConversation: null as IConversation | null
+        selectedConversationId: null as null | number
 
     }),
     getters: {
         getConversations(): IConversation[] {
             return this.conversations
         },
+        getSelectedConversationId(): number {
+            return this.selectedConversationId
+        },
         getSelectedConversation(): IConversation {
             return this.selectedConversation
         }
     },
     actions: {
-        setSelectedConversation(selectedConversation: IConversation) {
-            this.selectedConversation = selectedConversation
+        setSelectedConversation(conversationId: number) {
+            this.selectedConversationId = conversationId
+        },
+        updateFromTabs(conversations: any) {
+            this.conversations = conversations
         },
         deselectChat() {
-            // const idx = this.conversations.findIndex(e => e.id === this.selectedConversation.id)
-            // if (idx > -1) {
-            //     this.conversations[idx].messages = this.selectedConversation.messages
-            // }
-            this.selectedConversation = null
+            this.selectedConversationId = null
         },
         sendMockMessage(message: string, image?: string) {
-            // const idx = this.conversations.findIndex(e => e.id === this.selectedConversation.id)
-            // if (idx > -1) {
-            //     this.conversations[idx].messages.push({
-            //         messageId: (Math.ceil(Math.random() * 100)),
-            //         image: image ? image : null,
-            //         message: message,
-            //         isMe: true
-            //     })
-            // }
-            this.selectedConversation.messages.push({
-                messageId: (Math.ceil(Math.random() * 100)),
-                image: image ? image : null,
-                message: message,
-                isMe: true
-            })
+            const idx = this.conversations.findIndex(e => e.id === this.selectedConversationId)
+            if (idx > -1) {
+                this.conversations[idx].messages.push({
+                    messageId: (Math.ceil(Math.random() * 100)),
+                    image: image ? image : null,
+                    message: message,
+                    isMe: true
+                })
+            }
+
         },
 
     },

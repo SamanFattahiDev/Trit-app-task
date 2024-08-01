@@ -42,28 +42,6 @@ export default {
     }
   }
 }
-// const searchCommand = ref('')
-// const timeout = ref(null)
-// const chatStore = useChatStore()
-// const getConversations = computed(() => {
-//   return chatStore.getConversations
-// })
-// const debouncedSearchCommand = computed({
-//   get() {
-//     return searchCommand.value
-//   },
-//   set(val) {
-//     if (timeout.value) {
-//       clearTimeout(timeout.value)
-//     }
-//     timeout.value = setTimeout(() => {
-//       searchCommand.value = val
-//     },300)
-//   }
-// })
-// const filteredConversations = computed(() => {
-//   return getConversations.value.filter(e => e.name.includes(searchCommand.value))
-// })
 
 </script>
 

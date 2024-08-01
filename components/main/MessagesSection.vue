@@ -1,9 +1,13 @@
 <template>
-  <div class="custom-height bg-white relative overflow-y-auto" style="overflow-y: scroll">
-    <LazyMainChatBubble v-for="(message,idx) in getSelectedConversation.messages" :id="`chatBubble${idx}`"
+  <div class="custom-height bg-white relative overflow-y-auto" style="overflow-y: scroll"
+      >
+    <LazyMainChatBubble v-for="(message,idx) in selectedConversation.messages" :id="`chatBubble${idx}`"
                         :ref="el => chatBubble.push(el)"
                         :message="message"
                         @openMediaModal="openMediaModalSetData"></LazyMainChatBubble>
+    <button @click="scrollToLast" class="fixed z-[9999] bottom-20 btn-sm right-[69rem] btn bg-gray-100" type="button">
+      <IconsArrowDown class="w-4 h-4"></IconsArrowDown>
+    </button>
     <LazyMainChatInteractions class="sticky z-50 bottom-0"
                               @setScroll="scrollToLast"></LazyMainChatInteractions>
     <label ref="viewMedia" for="viewMedia"></label>
@@ -23,6 +27,7 @@
 </template>
 
 <script lang="ts" setup>
+
 const chatStore = useChatStore()
 const chatBubble = ref([])
 const viewMedia = ref(null)
@@ -32,13 +37,15 @@ onMounted(() => {
     scrollToLast()
   }, 100)
 })
-const getSelectedConversation = computed(() => {
-  return chatStore.getSelectedConversation
+const {selectedConversationId, conversations} = storeToRefs(chatStore)
+const selectedConversation = computed(() => {
+  return conversations.value.filter(e => e.id === selectedConversationId.value)[0]
 })
 window.addEventListener('storage', async function (event) {
-  await chatStore.setSelectedConversation(JSON.parse(event.newValue).selectedConversation)
+  await chatStore.updateFromTabs(JSON.parse(event.newValue).conversations)
   scrollToLast()
 });
+
 
 function openMediaModalSetData(image: string) {
   previewImage.value = image
@@ -47,7 +54,7 @@ function openMediaModalSetData(image: string) {
 
 
 function scrollToLast() {
-  const element: HTMLElement | any = document.getElementById(`chatBubble${getSelectedConversation.value.messages.length - 1}`)
+  const element: HTMLElement | any = document.getElementById(`chatBubble${selectedConversation.value.messages.length - 1}`)
   if (element)
     element.scrollIntoView({
       behavior: 'smooth'

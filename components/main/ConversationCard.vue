@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'bg-gray-100':selectedConversation?.id===props.conversation.id}"
+  <div :class="{'bg-gray-100':selectedConversationId===props.conversation.id}"
        class="w-full flex  hover:bg-gray-100 transition-all cursor-pointer px-4 py-2 gap-2"
        @click="setSelectedConversation">
     <div class="flex w-4/5 flex-col gap-1">
@@ -23,9 +23,9 @@ const props = defineProps({
     type: Object as PropType<IConversation>
   }
 })
-const {selectedConversation} = storeToRefs(chatStore)
+const {selectedConversationId} = storeToRefs(chatStore)
 function setSelectedConversation() {
-  chatStore.setSelectedConversation(props.conversation)
+  chatStore.setSelectedConversation(props.conversation.id)
 }
 </script>
 

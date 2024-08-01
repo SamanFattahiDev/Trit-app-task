@@ -22,7 +22,7 @@
         <template #modalBody>
           <div class="w-full flex flex-col gap-3 p-3">
             <img :src="imagePreview" alt="" class="max-h-40 object-cover rounded-xl shadow">
-            <textarea v-model="message" class="input bg-gray-100 border rounded-xl" rows="10"></textarea>
+            <textarea v-model="messageFile" class="input bg-gray-100 border rounded-xl" rows="10"></textarea>
             <div>
               <button class="btn bg-blue-500 text-white border-none" @click="sendMessageWithFile">ارسال</button>
             </div>
@@ -38,6 +38,7 @@ import AttachmentIcon from "~/components/utilities/chat/icons/AttachmentIcon.vue
 import VoiceIcon from "~/components/icons/VoiceIcon.vue";
 
 const message = ref('')
+const messageFile = ref('')
 const imagePreview = ref('')
 const chatStore = useChatStore()
 const fileInput = ref(null)
@@ -52,8 +53,8 @@ function processFile() {
 }
 
 async function sendMessageWithFile() {
-  await chatStore.sendMockMessage(message.value, imagePreview.value)
-  message.value = ''
+  await chatStore.sendMockMessage(messageFile.value, imagePreview.value)
+  messageFile.value = ''
   emits('setScroll')
   openFileMessageModal.value.click()
 
