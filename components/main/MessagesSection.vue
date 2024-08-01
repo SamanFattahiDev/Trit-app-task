@@ -1,15 +1,11 @@
 <template>
   <div class="custom-height bg-white relative overflow-y-auto" style="overflow-y: scroll"
-      >
+
+  >
     <LazyMainChatBubble v-for="(message,idx) in selectedConversation.messages" :id="`chatBubble${idx}`"
                         :ref="el => chatBubble.push(el)"
                         :message="message"
                         @openMediaModal="openMediaModalSetData"></LazyMainChatBubble>
-    <button @click="scrollToLast" class="fixed z-[9999] bottom-20 btn-sm right-[69rem] btn bg-gray-100" type="button">
-      <IconsArrowDown class="w-4 h-4"></IconsArrowDown>
-    </button>
-    <LazyMainChatInteractions class="sticky z-50 bottom-0"
-                              @setScroll="scrollToLast"></LazyMainChatInteractions>
     <label ref="viewMedia" for="viewMedia"></label>
     <LazyUtilitiesModal
         :id="'viewMedia'"
@@ -27,7 +23,16 @@
 </template>
 
 <script lang="ts" setup>
+import type {PropType} from "vue";
 
+const props = defineProps({
+  setScrollFromInteractions: {
+    type: Boolean as PropType<boolean>
+  }
+})
+watch(() => props.setScrollFromInteractions, async (val) => {
+  scrollToLast()
+})
 const chatStore = useChatStore()
 const chatBubble = ref([])
 const viewMedia = ref(null)
@@ -54,19 +59,26 @@ function openMediaModalSetData(image: string) {
 
 
 function scrollToLast() {
-  const element: HTMLElement | any = document.getElementById(`chatBubble${selectedConversation.value.messages.length - 1}`)
-  if (element)
+  const element: HTMLElement | any = document.getElementById(`chatBubble${selectedConversation?.value?.messages?.length - 1}`)
+  if (element) {
+
     element.scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center'
     })
+  }
 }
 
 </script>
 
 <style scoped>
 .custom-height {
-//min-height: 100rem; height: calc(100vh - 9.2vh);
+  height: calc(100vh - 9.2vh);
 }
 
+.custom-top {
+  top: calc(100vh - 9.2vh);
+}
 
 </style>

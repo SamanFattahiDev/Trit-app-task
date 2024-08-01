@@ -19,6 +19,10 @@ const {selectedConversationId, conversations} = storeToRefs(chatStore)
 const selectedConversation = computed(() => {
   return conversations.value.filter(e => e.id === selectedConversationId.value)[0]
 })
+window.addEventListener('storage', async function (event) {
+  console.log(event,'event for de selecting')
+  await chatStore.updateSelectedChat(JSON.parse(event.newValue).selectedConversationId)
+});
 
 function deselectConversation() {
   chatStore.deselectChat()

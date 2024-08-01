@@ -56,6 +56,9 @@ export const useChatStore = defineStore("chat", {
         updateFromTabs(conversations: any) {
             this.conversations = conversations
         },
+        updateSelectedChat(selectedConversationId: any) {
+            this.selectedConversationId = selectedConversationId
+        },
         deselectChat() {
             this.selectedConversationId = null
         },
