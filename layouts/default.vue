@@ -1,8 +1,6 @@
 <template>
-
   <div class="main overflow-x-hidden h-screen ">
     <slot/>
-    <!--    <Footer></Footer>-->
   </div>
 </template>
 

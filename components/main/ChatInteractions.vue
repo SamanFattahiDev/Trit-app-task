@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import AttachmentIcon from "~/components/utilities/chat/icons/AttachmentIcon.vue";
+import AttachmentIcon from "~/components/icons/AttachmentIcon.vue";
 import VoiceIcon from "~/components/icons/VoiceIcon.vue";
 
 const message = ref('')
