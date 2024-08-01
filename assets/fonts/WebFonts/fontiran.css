@@ -1,0 +1,87 @@
+﻿/**
+*
+*	Name:			Kalameh Fonts
+*	Version:			4.1
+*	Author:			Naser Khadem
+*	Created on:		March 11, 2019
+*	Updated on:		July 17, 2021
+*	Website:			http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت کلمه یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+Kalameh fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+------------------------------------------------------------------------------------- fonts/-
+*
+**/
+/* Font Family Region */
+@font-face {
+  font-family: PELAK-Economic;
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/PELAK-Economic/Pelak FontFamily/webfonts/eot/Pelak-light.eot") format("eot"), url("fonts/PELAK-Economic/Pelak FontFamily/webfonts/woff/Pelak-light.woff") format("woff"), url("fonts/PELAK-Economic/Pelak FontFamily/webfonts/woff2/Pelak-light.woff2") format("woff2");
+}
+@font-face {
+  font-family: PELAK-Economic;
+  font-style: normal;
+  font-weight: bold;
+  src: url("fonts/PELAK-Economic/Pelak FontFamily/webfonts/eot/Pelak-Bold.eot") format("eot"), url("fonts/PELAK-Economic/Pelak FontFamily/webfonts/woff/Pelak-Bold.woff") format("woff"), url("fonts/PELAK-Economic/Pelak FontFamily/webfonts/woff2/Pelak-Bold.woff2") format("woff2");
+}
+/* Font Family Region End */
+
+
+@font-face {
+  font-family: peyda;
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/peyda/Peyda-Regular.ttf') format('ttf');  /* FF39+,Chrome36+, Opera24+*/
+  /*url('fonts/woff/KalamehWebFaNum-Thin.woff') format('woff');  !* FF3.6+, IE9, Chrome6+, Saf5.1+*!*/
+  font-display: swap
+}
+@font-face {
+	font-family: peyda;
+	font-style: normal;
+	font-weight: bold;
+	src: url('fonts/peyda/Peyda-Bold.ttf') format('ttf');  /* FF39+,Chrome36+, Opera24+*/ /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-display: swap
+}
+
+@font-face {
+	font-family: KalamehWebFaNum;
+	font-style: normal;
+	font-weight: 100;
+	src: url('fonts/woff2/KalamehWebFaNum-Thin.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('fonts/woff/KalamehWebFaNum-Thin.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-display: swap
+}
+@font-face {
+	font-family: KalamehWebFaNum;
+	font-style: normal;
+	font-weight: 900;
+	src: url('fonts/woff2/KalamehWebFaNum-Black.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('fonts/woff/KalamehWebFaNum-Black.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-display: swap
+}
+@font-face {
+	font-family: KalamehWebFaNum;
+	font-style: normal;
+	font-weight: bold;
+	src: url('fonts/woff2/KalamehWebFaNum-Bold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('fonts/woff/KalamehWebFaNum-Bold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-display: swap
+}
+@font-face {
+	font-family: KalamehWebFaNum;
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/woff2/KalamehWebFaNum-Regular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('fonts/woff/KalamehWebFaNum-Regular.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-display: swap
+}
+@font-face {
+	font-family: iranSans;
+	src: url('fonts/IRANSansWeb.ttf');
+	font-display: swap;
+}

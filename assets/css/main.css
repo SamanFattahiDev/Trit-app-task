@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.vpd-up-arrow-btn{
+    @apply flex justify-center !important;
+}
+.vpd-down-arrow-btn{
+    @apply flex justify-center !important;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+html {
+    font-family: iranSans!important;
+    direction: rtl;
+    text-align: right;
+}
+
+.container {
+    @apply mx-auto w-full 2xl:w-8/12;
+}
+
+span p small strong {
+    @apply font-semibold !important;
+}
+
+input {
+    @apply ring-0;
+    outline: 0 !important;
+}
+
+a {
+    scroll-behavior: smooth !important;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth !important;
+}
+
+
+.rotate-enter-active {
+    animation: rotateAnm 0.3s ease-in-out;
+}
+
+.rotate-leave-active {
+    animation: rotateAnm reverse 0.3s ease-in-out;
+}
+
+@keyframes rotateAnm {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+
+.title-overlay-f {
+    height: 0;
+    opacity: 0;
+}
+
+.overlay-f {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgb(0 0 0 / 72%) 11%, rgb(255 255 255 / 6%) 100%);
+    /*overflow: hidden;*/
+    width: 100%;
+    min-height: max-content;
+    transition: .5s ease;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.text-f {
+    color: white;
+    font-size: 14px;
+}
+
+.item-f:hover .title-overlay-f {
+    opacity: 1;
+    height: max-content;
+    padding: 20px 0;
+}
+
+.text-fs3 {
+    left: 50%;
+    width: 100%;
+    height: max-content;
+}
+
+
+.main-button{
+    @apply bg-secondary rounded-lg text-white border-none btn
+}
+.secondary-button{
+    @apply bg-primary rounded-lg text-secondary border-none btn
+}
+.main-button-outline{
+     @apply bg-white border border-secondary  rounded-lg text-secondary  btn
+ }
+.main-height {
+    /*130px*/
+    min-height:calc(100vh - 20vh)!important
+}
+.main-height-grid {
+    /*230px*/
+    min-height:calc(100vh - 31vh)!important
+}
+.main-height-grid-detail {
+    /*212px*/
+    min-height:calc(100vh - 32vh)!important
+}
+.detail-height {
+    min-height: calc(100vh - 10vh)!important;
+}
+
+
+
+/* Transitions Region */
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    filter: blur(1rem);
+}
+.page-enter-to,
+.page-leave-leave {
+    opacity: 1;
+    filter: blur(0rem);
+}
+
+
+.my-page-enter-active,
+.my-page-leave-active {
+    transition: opacity .4s;
+}
+
+.my-page-enter,
+.my-page-leave-to {
+    opacity: 0;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+    transition: opacity .1s;
+}
+
+.modal-enter,
+.modal-leave-to {
+    opacity: 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    filter: blur(1rem);
+}
+
+.component-enter-active,
+.component-leave-active {
+    transition: opacity .3s;
+}
+
+.component-enter,
+.component-leave-to {
+    opacity: 0;
+}
+
+.slide-bottom-enter-active,
+.slide-bottom-leave-active {
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.slide-bottom-enter,
+.slide-bottom-leave-to {
+    opacity: 0;
+    transform: translate3d(0, 15px, 0);
+}
+
+.slide-enter, .slide-leave-to {
+    transform: scaleY(0);
+}
+
+.slide-enter-active {
+    animation: slide-down 2s ease-out;
+    overflow: hidden;
+}
+
+.slide-leave-active {
+    animation: slide-up 0.3s ease-out;
+    overflow: hidden;
+}
+
+.slide-side-enter-active{
+    animation: slide-side 0.3s ease-in;
+}
+.slide-side-leave-active{
+    animation: slide-side reverse 0.3s ease-out;
+}
+
+@keyframes slide-down {
+    0% {
+        display: hidden;
+        max-height: 0px;
+    }
+    100% {
+        display: block;
+        max-height: max-content;
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        display: block;
+        max-height: 100px;
+    }
+    100% {
+        display: hidden;
+        max-height: 0px;
+    }
+}
+
+@keyframes slide-side {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.rotate-enter-active {
+    animation: rotateAnm 0.3s ease-in-out;
+}
+
+.rotate-leave-active {
+    animation: rotateAnm reverse 0.3s ease-in-out;
+}
+
+@keyframes rotateAnm {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+.title-overlay-f {
+    height: 0;
+    opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.SlideUp-enter-active {
+    animation: SlideUpAnm 0.5s ease-in-out;
+}
+
+.SlideUp-leave-active {
+    animation: SlideUpAnm reverse 0.5s ease-in-out;
+}
+
+@keyframes SlideUpAnm {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+    transition: all 0.2s;
+}
+
+.dropdown-enter,
+.dropdown-leave-to {
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
+
+.slide-right-enter-active {
+    animation: slideRightAnm 0.5s ease-in-out;
+}
+
+.slide-right-leave-active {
+    animation: slideRightAnm reverse 0.5s ease-in-out;
+}
+
+@keyframes slideRightAnm {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.rotate-enter-active {
+    animation: rotateAnm 0.3s ease-in-out;
+}
+
+.rotate-leave-active {
+    animation: rotateAnm reverse 0.3s ease-in-out;
+}
+
+@keyframes rotateAnm {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+/* Transitions Region End */
